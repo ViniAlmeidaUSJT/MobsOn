@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobsOn</title>
+    <style>
+        /* Estilo básico da página */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        
+        /* Estilo da navbar */
+        .navbar {
+          display: flex;
+          align-items: center;
+          background-color: #333;
+          height: 60px;
+          padding: 10px;
+        }
+        
+        /* Estilo dos links da navbar */
+        .navbar a {
+          color: white;
+          text-decoration: none;
+          padding: 15px;
+        }
+        
+        /* Estilo do link ativo da navbar */
+        .navbar a.active {
+          background-color: #f00;
+        }
+        
+        /* Estilo do link com o mouse sobre da navbar */
+        .navbar a:hover {
+          background-color: #555;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        #coords {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        #submit {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #submit:hover {
+            background-color: #45a049;
+        }
+        .mapBox{
+            position: relative;
+            width: 600px;
+            height: 500px;
+            background: #fff;
+        }
+        .mapBox iframe{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Navbar com quatro links -->
+<div class="navbar">
+
+    <a href="#" class="active">Home</a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
+    <a href="#">Ajuda</a>
+    
+</div>
+
+<body>
+
+    <div class="container">
+        <h1>Verificador de Street View</h1>
+        <input type="text" id="coords" placeholder="Insira a latitude e longitude aqui">
+        <button id="submit" onclick="generateLink()">Verificar</button>
+        <div class="mapBox">
+            <div class="mapBox">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.9823350209617!2d-46.62826252409467!3d-23.497145759237238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef74c1baa478d%3A0x6432a2e5cac40528!2sUniversidade%20S%C3%A3o%20Judas%20-%20Unidade%20Santana!5e0!3m2!1spt-BR!2sbr!4v1701630604904!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        function generateLink() {
+            var coords = document.getElementById('coords').value.split(',');
+            var lat = coords[0].trim();
+            var lng = coords[1].trim();
+            var url = 'https://www.google.com/maps?q=&layer=c&cbll=' + lat + ',' + lng;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body> 
+</html>
